@@ -94,16 +94,6 @@ bool hitWall(Position head, int height, int width) {
     return head.row <= 0 || head.row >= height - 1 || head.col <= 0 || head.col >= width - 1;
 }
 
-Position clampPositionToBorderline(const Position& p, int height, int width) {
-    Position clamped = p;
-    if (clamped.row <= 0) clamped.row = 0;
-    if (clamped.row >= height - 1) clamped.row = height - 1;
-    if (clamped.col <= 0) clamped.col = 0;
-    if (clamped.col >= width - 1) clamped.col = width - 1;
-
-    return clamped;
-}
-
 Position randomFoodPosition(std::deque<Position>& snakeBody, int height, int width, std::mt19937& rng) {
     std::uniform_int_distribution<int> rowDist(1, height - 2);
     std::uniform_int_distribution<int> colDist(1, width - 2);
